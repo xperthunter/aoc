@@ -23,6 +23,7 @@ with open(sys.argv[1], 'r') as fp:
 
 
 mids = 0
+incorrects = list()
 for orders in pages:
 	correct = True
 	for i, pg in enumerate(orders):
@@ -38,5 +39,38 @@ for orders in pages:
 	if correct:
 		print(orders[int((len(orders)-1)/2)])
 		mids += int(orders[int((len(orders)-1)/2)])
+	else:
+		incorrects.append(orders)
 
 print(mids)
+
+while len(incorrects) > 0:
+	for ii, inc in enumerate(incorrects.copy()):
+		correct = True
+		for i, pg in enumerate(inc.copy()):
+			for j in range(i+1, len(inc)):
+				if inc[j] in rules:
+					if pg in rules[orders[j]]:
+						incorrects[ii][i], incorrects[ii][j] = incorrects[ii][j], incorrects[ii][i]
+						correct = False
+						break
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
