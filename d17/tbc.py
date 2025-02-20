@@ -1,9 +1,5 @@
 #!/usr/bin/python3
 
-import sys
-import json
-
-
 class TBC():
 	def __init__(self, registers=None, program=None):
 		self.registers = registers
@@ -85,36 +81,38 @@ class TBC():
 		return self.returns
 		
 
-
-registers = {'A': None, 'B': None, 'C': None}
-program = ''
-
-combo_operands = {4: 'A', 5: 'B', 6: 'C', 7: None}
-
-with open(sys.argv[1], 'r') as fp:
-	for line in fp.readlines():
-		line = line.rstrip()
-		if len(line) == 0: continue
-		if 'Register' in line:
-			contents = line.split()
-			registers[contents[1][0]] = int(contents[-1])
-			continue
-		
-		if 'Program' in line:
-			contents = line.split()
-			program = contents[-1]
-
-print(json.dumps(registers,indent=2))
-print(program)
-
-program = program.split(',')
-program = [int(p) for p in program]
-
-tbc = TBC(registers=registers, program=program)
-
-output = tbc.run()
-output = [str(o) for o in output]
-print(','.join(output))
+if __name__ == '__main__':
+	
+	import sys
+	import json
+	
+	registers = {'A': None, 'B': None, 'C': None}
+	program = ''
+	
+	with open(sys.argv[1], 'r') as fp:
+		for line in fp.readlines():
+			line = line.rstrip()
+			if len(line) == 0: continue
+			if 'Register' in line:
+				contents = line.split()
+				registers[contents[1][0]] = int(contents[-1])
+				continue
+			
+			if 'Program' in line:
+				contents = line.split()
+				program = contents[-1]
+	
+	print(json.dumps(registers,indent=2))
+	print(program)
+	
+	program = program.split(',')
+	program = [int(p) for p in program]
+	
+	tbc = TBC(registers=registers, program=program)
+	
+	output = tbc.run()
+	output = [str(o) for o in output]
+	print(','.join(output))
 
 
 		
