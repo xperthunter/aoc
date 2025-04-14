@@ -1,5 +1,15 @@
 #!/usr/bin/python3
 
+"""
+
+Day 3 Part 2
+	* use grep to pre-process the input
+		`grep -oE "mul\([0-9]{1,3},[0-9]{1,3}\)|do\(\)|don't\(\)" input > results.txt`
+	* then process results with the following script
+		`python3 part2.py results.txt`
+
+"""
+
 import sys
 
 do = True

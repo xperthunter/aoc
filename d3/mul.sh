@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# For AoC Day 3 Part 1
+# the pattern to use is: "mul\([0-9]{1,3},[0-9]{1,3}\)"
+
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <file> <pattern>"
     exit 1
@@ -25,19 +28,14 @@ else
     echo "Matches found:"
     for MATCH in $MATCHES; do
     	if [[ $MATCH == "mul"* ]]; then
-    		echo "$MATCH"
+    		#echo "$MATCH"
     		read FIRST SECOND <<< $(echo "$MATCH" | awk -F'[(),]' '{print $2, $3}')
     		PRODUCT=$((FIRST * SECOND))
-    		echo "$PRODUCT"
+    		#echo "$PRODUCT"
     		SUM=$((SUM + PRODUCT))
-    	elif [[ ]]
     	fi
     	
     done
-    
-    # Additional processing: Save matches to a new file
-    #echo "$MATCHES" > matches.txt
-    #echo "Matches saved to 'matches.txt'."
 fi
 
 echo "$SUM"
