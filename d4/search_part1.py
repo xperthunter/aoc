@@ -13,10 +13,9 @@ with open(sys.argv[1], 'r') as fp:
 
 # read in the pattern we want to find
 pat = str(sys.argv[2])
-patr = pat[::-1] # reverse the pattern -- important for later
+patr = pat[::-1] # reverse the pattern
 
-
-# we will located all words of length equal to the pattern length 
+# we will locate all words of length equal to the pattern length 
 # all words, sub words (subs) stored in a dictionary
 subs = dict()
 for i, row in enumerate(puz):
@@ -24,10 +23,10 @@ for i, row in enumerate(puz):
 		
 		# there are 4 directions you can look for sub words
 		# we save the i,j indices of each sub word
-		keyr = '.'.join((str(i),str(j)))
-		keyd = '.'.join((str(i),str(j)))
-		keyg = '.'.join((str(i),str(j)))
-		keyu = '.'.join((str(i),str(j)))
+		keyr = '.'.join((str(i),str(j))) # right
+		keyd = '.'.join((str(i),str(j))) # down
+		keyg = '.'.join((str(i),str(j))) # diagonal down
+		keyu = '.'.join((str(i),str(j))) # diagonal up
 		
 		subr = puz[i][j]
 		subd = puz[i][j]
@@ -72,5 +71,3 @@ for k, v in subs.items():
 	else: continue
 
 print(found)
-
-# actually printing the resulting puzzle is slighlty more work
