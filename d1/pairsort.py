@@ -26,17 +26,17 @@ with open(sys.argv[1], 'r') as fp:
 
 # Part 1
 list_1 = sorted(list_1, reverse=False)
-list2 = sorted(list2, reverse=False)
+list2  = sorted(list2, reverse=False)
 
 distance = 0
 for l1, l2 in zip(list_1, list2):
 	distance += abs(l1 - l2)
 
-print(distance)
+print(f'Part 1: {distance}')
 
 # Part 2
 score = 0
 for num in list_1:
 	if num in list_2: score += num*list_2[num]
 
-print(score)
+print(f'Part 2: {score}')
