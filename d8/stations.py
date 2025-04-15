@@ -29,7 +29,7 @@ for station in stations:
 	print(stations[station])
 	
 	print(grid[stations[station]])
-# 	continue
+	
 	for i in range(len(stations[station][0])):
 		antinodes[stations[station][0][i], stations[station][1][i]] = 1
 		for j in range(i+1, len(stations[station][0])):
@@ -69,10 +69,7 @@ for station in stations:
 				else:
 					in_grid = False
 			 
-				
-			
-			
-			
+#			Part 1
 # 			twice_row = 2*row_shift + stations[station][0][i]
 # 			twice_col = 2*col_shift + stations[station][1][i]
 # 			
