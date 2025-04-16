@@ -76,8 +76,14 @@ class TBC():
 		self.instruction_pointer = 0
 		
 		while self.instruction_pointer < len(self.program)-1:
+			print(self.program[self.instruction_pointer:self.instruction_pointer+2])
 			self.opcodes[self.program[self.instruction_pointer]](self.program[self.instruction_pointer+1])
-			self.operands = {0:0, 1:1, 2:2, 3:3, 4:self.A, 5:self.B, 6:self.C, 7:None}		
+			self.operands = {0:0, 1:1, 2:2, 3:3, 4:self.A, 5:self.B, 6:self.C, 7:None}
+			
+			print(f'A: {bin(self.A)}, B: {bin(self.B)}, C: {bin(self.C)}')
+			print(f'returns: {[bin(r) for r in self.returns]}')
+			
+					
 		return self.returns
 		
 

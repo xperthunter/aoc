@@ -94,7 +94,7 @@ for towel in towels:
 	print(towel)
 	possibles += count_solutions(towel, pats)
 	print(possibles)
-	sys.exit()
+	#sys.exit()
 
 print(possibles)
 
