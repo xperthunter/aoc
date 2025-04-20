@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 
+"""
+Used responses from this reddit thread to help me
+	- https://www.reddit.com/r/adventofcode/comments/1hmsmxf/2024_day_19_part_2_why_i_struggled_with_this/
+learned about caches and helped me with memoization
+"""
+
+
 from functools import lru_cache
 from heapq import heappop, heappush
 import json
@@ -57,25 +64,6 @@ def count_solutions(design, patterns):
 	cache[design] = result
 	return result
 
-
-# #@lru_cache(maxsize=None)
-# cache = {}
-# def count_solutions(design, patterns):
-# 	if design == '':
-# 		return 1
-# 	
-# 	if design in cache:
-# 		return cache[design]
-# 	
-# 	result = 0
-# 	for pat in patterns:
-# 		if design.startswith(pat):
-# 			remain = design[len(pat):]
-# 			result += count_solutions(remain, patterns)
-# 	
-# 	cache[design] = result
-# 	return result
-
 towels = []
 pats = []
 with open(sys.argv[1], 'r') as fp:
@@ -91,10 +79,7 @@ pats = tuple(pats)
 cache = dict()
 possibles = 0
 for towel in towels:
-	print(towel)
 	possibles += count_solutions(towel, pats)
-	print(possibles)
-	#sys.exit()
 
 print(possibles)
 
