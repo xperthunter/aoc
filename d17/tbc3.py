@@ -88,6 +88,14 @@ class TBC():
 		
 if __name__ == '__main__':
 	
+	"""
+	Got the help of reddit posts:
+		- https://www.reddit.com/r/adventofcode/comments/1hg38ah/2024_day_17_solutions/
+		- https://www.reddit.com/r/adventofcode/comments/1hgcuw8/2024_day_17_part_2_any_hints_folks/
+	
+	The bit shifting on line 133 i learned from some of the responses above
+	"""
+	
 	import sys
 	import json
 	
