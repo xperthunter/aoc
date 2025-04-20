@@ -33,7 +33,7 @@ def a_star(start, end, grid):
 		
 		if (i, j) == end:
 			lowest_score = score
-			#print(len(path))
+			print(len(path)-1)
 			return True
 			
 			winning_paths |= path
@@ -65,7 +65,7 @@ with open(sys.argv[1], 'r') as fp:
 		
 		xy = line.split(',')
 		
-		print(xy[1], xy[0])
+		#print(xy[1], xy[0])
 		
 		ijs[0].append(int(xy[1]))
 		ijs[1].append(int(xy[0]))
@@ -80,25 +80,22 @@ coords = (xs, ys)
 
 grid[coords] = 1
 
-print()
-for row in grid:
-	row = [str(int(c)) for c in row]
-	print(' '.join(row))
-print()
+# print()
+# for row in grid:
+# 	row = [str(int(c)) for c in row]
+# 	print(' '.join(row))
+# print()
 
 start = (0,0)
 end   = (70,70)
 
-print(grid.shape)
+print(f'Part 1: {a_star(start, end, grid)}')
 
-print(a_star(start, end, grid))
-#sys.exit()
 ### Part 2 ###
 
 searching = True
 size = int(1024)
 while searching:
-	print(size)
 	size += 1
 	if size > len(ijs[0]):
 		print('done')
@@ -112,11 +109,10 @@ while searching:
 	grid[coords] = 1
 	
 	success = a_star(start, end, grid)
-	print(success)
 	if not success: searching = False
 
 print(size)
-print(ijs[0][size-1], ijs[1][size-1])
+print(f'Part 2: {ijs[1][size-1]}, {ijs[0][size-1]}')
 
 
 		
