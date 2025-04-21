@@ -1,3 +1,16 @@
+
+"""
+Credit: https://github.com/mgtezak/Advent_of_Code/blob/master/2024/21/p2.py
+
+my keypad.py solution does not take into account the distance away from the 
+button 'A'. I missed this part of the solution. line 29 here for mgtezak figures
+out elegantly where a negative number multiplied by a string doesn't produce a string. 
+
+Even my memoization approach is taken from this solution, but my keypad.py script doesn't produce
+the correct answer due to the issue described above. 
+"""
+
+
 from functools import lru_cache as cache
 
 def part2(puzzle_input):
@@ -48,7 +61,7 @@ def part2(puzzle_input):
     total_complexity = 0
     sub = 0
     for button_presses in puzzle_input.split('\n'):
-        sub = int(button_presses[:-1]) * get_length(button_presses, 4, True)
+        sub = int(button_presses[:-1]) * get_length(button_presses, 26, True)
         print(f'sub {sub}')
         total_complexity += sub
 
